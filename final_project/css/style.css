@@ -1,0 +1,390 @@
+/* ==============================
+   B.Tech & Degree Roadmaps
+   Main stylesheet
+   ============================== */
+
+/* ---------- Basic settings ---------- */
+
+:root {
+    box-sizing: border-box;
+    --bg: #f3f0ff;
+    --bg-light: #fff1f7;
+    --card: #ffffff;
+    --text: #1e1b3a;
+    --muted: #6b6889;
+    --primary: #6366f1;
+    --border: #e6e2f5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 20px;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(160deg, var(--bg), var(--bg-light));
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+/* ---------- Main page ---------- */
+
+main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 18px 16px 56px;
+}
+
+h2 {
+    margin: 28px 0 12px;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+/* ---------- Top welcome section ---------- */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        var(--hero-color, #6366f1),
+        #ec4899 60%,
+        #f59e0b
+    );
+    color: white;
+    border-radius: 22px;
+    padding: 26px 22px;
+    margin: 8px 0 6px;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.hero h1 {
+    margin: 0 0 6px;
+    font-size: clamp(1.5rem, 5vw, 2.1rem);
+}
+
+.hero p {
+    margin: 0;
+    opacity: 0.95;
+}
+
+.hero small {
+    font-weight: 600;
+}
+
+/* ---------- Progress bar ---------- */
+
+.bar {
+    height: 12px;
+    background: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.hero .bar {
+    background: rgba(255, 255, 255, 0.35);
+    margin-top: 16px;
+}
+
+.bar i {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.4s;
+}
+
+.hero .bar i {
+    background: white;
+}
+
+/* ---------- Course cards ---------- */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 14px;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--card-color, #6366f1);
+    border-radius: 16px;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(99, 102, 241, 0.18);
+}
+
+.card .ic {
+    font-size: 1.8rem;
+    line-height: 1.1;
+}
+
+.card small {
+    color: var(--muted);
+}
+
+/* Large cards used on the home page */
+
+.big {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+}
+
+.big .card {
+    padding: 28px 22px;
+}
+
+.big .ic {
+    font-size: 2.8rem;
+}
+
+/* ---------- Back buttons ---------- */
+
+.back {
+    padding: 6px 14px;
+    margin: 6px 0;
+    background: var(--card);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ---------- Roadmap year sections ---------- */
+
+section {
+    margin: 14px 0;
+    padding: 14px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 7px solid var(--year-color, #3b82f6);
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.08);
+}
+
+h3 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+}
+
+h3 .bd {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    background: var(--year-color, #3b82f6);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.95rem;
+}
+
+h3 span {
+    padding: 3px 10px;
+    background: rgba(99, 102, 241, 0.12);
+    color: var(--primary);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ---------- Roadmap checklist ---------- */
+
+label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+label:hover {
+    background: rgba(99, 102, 241, 0.08);
+}
+
+label:has(input:checked) span {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+input {
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+    flex: none;
+    accent-color: var(--primary);
+}
+
+/* ---------- Search and tool area ---------- */
+
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0 0;
+}
+
+.tools input {
+    flex: 1;
+    min-width: 200px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 10px 16px;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    font: inherit;
+}
+
+/* ---------- Job and resource chips ---------- */
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chips span,
+.chips a {
+    padding: 6px 14px;
+    background: rgba(99, 102, 241, 0.10);
+    color: var(--text);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.chips a {
+    font-weight: 600;
+}
+
+/* ---------- Login area ---------- */
+
+.authbar {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 10px 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.authbar span {
+    font-weight: 600;
+}
+
+.login {
+    max-width: 440px;
+    margin: 36px auto;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 14px 40px rgba(99, 102, 241, 0.20);
+}
+
+.login .in {
+    padding: 26px 24px 28px;
+}
+
+.fm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.fm input {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 13px 16px;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    font: inherit;
+}
+
+.pbtn {
+    padding: 13px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: white;
+    border: 0;
+    border-radius: 14px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login ul {
+    padding: 0;
+    margin: 20px 0 0;
+    list-style: none;
+    text-align: left;
+}
+
+.login li {
+    padding: 5px 0;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 600px) {
+    main {
+        padding: 12px 10px 40px;
+    }
+
+    .hero {
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .big {
+        grid-template-columns: 1fr;
+    }
+
+    .tools input {
+        min-width: 100%;
+    }
+}
